@@ -13,12 +13,16 @@ class AddAtividadesTable extends Migration
      */
     public function up()
     {
-        Schema::create('atividades', function (Blueprint $table) {
+        Schema::create('planejamento', function (Blueprint $table) {
             $table->increments('id');           //código identificador
-            $table->string('title');            //título da atividade
-            $table->string('description');      //descrição da atividade
-            $table->dateTime('scheduledto');    //agendado para
-            $table->integer('user_id')->unsigned(); //guarda o id de quem cadastra a ativ.
+            $table->string('previsao_ganhos');            //título da atividade
+            $table->string('cad_semente_nome');      //descrição da atividade
+            $table->dateTime('ano');    //agendado para
+            $table->string('hectare_plantado');
+            $table->string('previsao_gasto'); 
+            $table->string('safra');
+            
+            $table->integer('')->unsigned(); //guarda o id de quem cadastra a ativ.
             $table->timestamps();               //registro created_at e updated_at
         });
     }
@@ -30,7 +34,7 @@ class AddAtividadesTable extends Migration
      */
     public function down()
     {
-        Schema::table('atividades', function (Blueprint $table) {
+        Schema::table('planejamento', function (Blueprint $table) {
             //
         });
     }
